@@ -6,7 +6,8 @@ As we all know that the online payment methods are increasing gradually day by d
 
 # Solution –
 We created a payment portal CashU which is used to perform multiple transactions between the various user connected to it. We use the blockchain technology to perform connections and transactions between the users.
-Technical Stack –
+
+# Technical Stack –
 The technical stack used by us is as follows-
 	Front-End: - HTML, CSS, JavaScript
 	Back-End: - Nodejs, Solidity, truffle, testrpc
