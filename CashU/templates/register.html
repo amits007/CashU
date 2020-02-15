@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block page_content %}
+    <h1>Register</h1>
+    <p>Before you submit this form, please ensure you have <a href="https://fedorahosted.org/freeotp/">FreeOTP</a> installed on your smartphone, as you will need it to complete your registration. Download from <a href="https://itunes.apple.com/us/app/freeotp/id872559395">iTunes</a> | <a href="https://play.google.com/store/apps/details?id=org.fedorahosted.freeotp">Google Play</a></p>
+    {{ wtf.quick_form(form) }}
+    <div>
+    <h1>Capture the Image</h1>
+    <style>
+#container {
+	margin: 50px auto;
+	width: 520px;
+	height: 395px;
+	border: 10px #333 solid;
+}
+#videoElement {
+	width: 500px;
+	height: 375px;
+	background-color: #666;
+}
+</style>
+</head>
+ 
+<body>
+<div id="container">
+	<video autoplay="true" id="videoElement">
+	
+	</video>
+	<button onClick="stop()">Capture</button>
+</div>
+<script>
+var video = document.querySelector("#videoElement");
+
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      console.log("Something went wrong!");
+    });
+}
+
+
+function stop() {
+  var stream = video.srcObject;
+  var tracks = stream.getTracks();
+
+  for (var i = 0; i < tracks.length; i++) {
+    var track = tracks[i];
+    track.stop();
+  }
+
+  video.srcObject = null;
+}
+</script>
+    </div>
+
+    <br>
+    <div class="alert alert-danger" role="alert">Note: The next page will show sensitive information. Make sure nobody can see your screen before pressing the Register button.</div>
+{% endblock %}

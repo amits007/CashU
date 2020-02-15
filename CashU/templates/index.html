@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+ <html lang="en">
+{% block page_content %}
+    {% if current_user.is_authenticated %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Welcome, {{ current_user.username }}</title>
+  </head>
+  <body>
+    <section class="landing">
+      <div class="dark-overlay">
+        <div class="landing-inner">
+          <h1 class="x-large">Welcome, {{ current_user.username }}</h1>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+  
+    {% else %}
+   
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="./css" />
+    <title>Welcome To The CashU</title>
+  </head>
+  <body>
+    <section class="landing">
+      <div class="dark-overlay">
+        <div class="landing-inner">
+          <h1 class="x-large">CashU : Make payment easy</h1>
+          <p class="lead">
+            Make payment more secure and reliable
+          </p>
+          <div class="buttons">
+            <a href="{{ url_for('register') }}" class="btn btn-primary">Sign Up</a>
+            <a href="{{ url_for('login') }}" class="btn btn-light">Login</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+
+    {% endif %}
+{% endblock %}
+
+
